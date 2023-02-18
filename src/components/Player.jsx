@@ -1,9 +1,10 @@
 import "../index.css";
 
+
 const Player = (data) => {
   return (
     <div className="cards">
-      <img className="nba-img" src={data.img} alt="" />
+      <img className="nba-img" src={data.img} alt={data.name} />
 
       {/* <div className="statistics">
         <h1>{data.statistics}</h1>
