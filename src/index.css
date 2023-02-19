@@ -60,9 +60,11 @@ input {
 .nba-img:hover {
   border-radius: 1rem;
   transform: scale(0.9);
+  
+  
 }
 .title {
-  /* border-top: solid 1px; */
+  border-top: solid 0.5px rgba(0, 0, 0, 0.132);
   height: 20%;
   width: 100%;
   display: flex;
