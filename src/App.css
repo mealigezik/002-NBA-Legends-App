@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #f4d467;
+  font-family: "Roboto", sans-serif;
+}
+
+.card_container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.title {
+  font-size: 2.2rem;
+}
+
+.search_bar {
+  min-width: 350px;
+  width: 40%;
+  padding: 0.8rem;
+  border-style: none;
+  border-radius: 2rem;
+  text-align: center;
+  font-size: 1.3rem;
+}
+.player_card {
+  margin: 1rem;
+  background-color: white;
+  height: 400px;
+  width: 250px;
+  font-size: 0.5rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border: 1px solid rgba(0, 0, 0, 0.311);
+}
+.player_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 90%;
+  border-radius: 2rem;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-image: url("https://www.themycenaean.org/wp-content/uploads/2020/02/kobe.jpg");
+}
+.image {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem 1rem 0 0;
+  object-fit: cover;
+  transition: all 0.5s ease;
+  transform: perspective(500px);
+}
+.image:hover {
+  border-radius: 1rem;
+  transform: scale(0.9);
+}
+.image_div {
+  height: 90%;
+}
+.list_div {
+  height: 85%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  margin: 1rem 1rem 0 1rem;
+  background-color: #f4d467;
+}
+.list {
+  margin: 1rem auto;
+  color: rgb(15, 15, 15);
+  font-size: 1.3rem;
+}
+.name {
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+  border-radius: 0 0 1rem 1rem;
+}
+.bos {
+  height: 300px;
+  width: 250px;
+  font-size: 5rem;
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  gap: 2rem;
+}
