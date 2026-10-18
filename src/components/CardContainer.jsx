@@ -1,48 +1,35 @@
-import React from "react";
+import { useState } from "react";
 import PlayerCard from "./PlayerCard";
 import { data } from "../helper/data";
-import { useState } from "react";
 
 const CardContainer = () => {
-  console.log(data);
   const [searchCard, setSearchCard] = useState("");
+
+  const normalizedSearch = searchCard.trim().toLocaleLowerCase();
+
+  const filteredPlayers = data.filter((player) =>
+    player.name.toLocaleLowerCase().includes(normalizedSearch)
+  );
+
   return (
-    <div className="card_container">
+    <section className="card_container" aria-label="NBA players">
+      <label className="visually-hidden" htmlFor="player-search">Search players</label>
       <input
-        onChange={(e) => setSearchCard(e.target.value)}
+        id="player-search"
+        onChange={(event) => setSearchCard(event.target.value)}
         className="search_bar"
-        type="text"
-        placeholder="Search Player..."
+        type="search"
+        placeholder="Search player..."
+        value={searchCard}
       />
       <div className="player_container">
-        {data
-          .filter((player) => {
-            return player.name
-              .toLocaleLowerCase()
-              .includes(searchCard.toLocaleLowerCase());
-          })
-          .map((item, index) => {
-            return <PlayerCard item={item} key={index} />;
-          })}
+        {filteredPlayers.map((item) => (
+          <PlayerCard item={item} key={item.name} />
+        ))}
+        {filteredPlayers.length === 0 && <p role="status">No players match your search.</p>}
       </div>
-    </div>
+    </section>
   );
 };
 
 export default CardContainer;
-
-
-
-
-
-// const CardContainer = () => {
-//   return (
-//     <div className="card-container">
-//       {data.map((item, index) => (
-//         <Player {...item} key={index} />
-//       ))}
-//     </div>
-//   );
-// };
-
-// export default CardContainer;
