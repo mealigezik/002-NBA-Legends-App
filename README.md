@@ -1,11 +1,11 @@
 # NBA Legends App
 
-A small React application that displays a searchable collection of basketball legends and their statistics.
+A React application with a searchable collection of basketball legends and their statistics.
 
 ## Features
 - Search players by name.
-- Toggle a player card between the image and statistics.
-- Responsive layout using React components and CSS.
+- Toggle player cards between photos and statistics.
+- Render cards from a local dataset.
 
 ## Tech stack
 - React 18
@@ -18,9 +18,9 @@ npm install
 npm start
 ```
 
-The project uses a static dataset in `src/helper/data.js`; it does not fetch live NBA data. Player statistics and image sources should be checked for accuracy and usage rights before redistribution.
+The dataset in `src/helper/data.js` is static; this app does not fetch live NBA data. Check the accuracy of statistics and usage rights for player images before redistribution.
 
-## Testing
+## Validate
 ```bash
 npm test
 npm run build
