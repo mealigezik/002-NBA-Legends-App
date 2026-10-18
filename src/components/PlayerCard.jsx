@@ -1,52 +1,35 @@
 import React, { useState } from "react";
 
 const PlayerCard = ({ item }) => {
-  const { img, name, statistics } = item;
-  const [toggle, setToggle] = useState(true);
-  const handleToggle = () => {
-    setToggle(!toggle);
-  };
-  //   console.log(toggle);
+  const { img, name, statistics = [] } = item;
+  const [showStatistics, setShowStatistics] = useState(false);
+
   return (
-    <div className="player_card" onClick={handleToggle}>
-      {toggle ? (
-        <div className="image_div">
-          <img className="image" src={img} alt="" />
-        </div>
-      ) : (
-        <div className="list_div">
-          <ul>
-            {statistics.map((item, index) => (
-              <p className="list" key={index}>
-                🏀{item}
-              </p>
+    <article className="player_card">
+      <button
+        type="button"
+        className="player_card_toggle"
+        onClick={() => setShowStatistics((visible) => !visible)}
+        aria-expanded={showStatistics}
+        aria-label={`${showStatistics ? "Hide" : "Show"} statistics for ${name}`}
+      >
+        {showStatistics ? (
+          <ul className="statistics_list">
+            {statistics.map((statistic, index) => (
+              <li className="list" key={`${name}-stat-${index}`}>
+                🏀 {statistic}
+              </li>
             ))}
           </ul>
-        </div>
-      )}
-      <div className="name">
-        <p>{name}</p>
-      </div>
-    </div>
+        ) : (
+          <span className="image_div">
+            <img className="image" src={img} alt={name} loading="lazy" />
+          </span>
+        )}
+        <span className="name">{name}</span>
+      </button>
+    </article>
   );
 };
 
 export default PlayerCard;
-
-
-// const Player = (data) => {
-//         return (
-//               <div className="cards">
-//                 <img className="nba-img" src={data.img} alt={data.name} />
-        
-//         {/* <div className="statistics">
-//           <h1>{data.statistics}</h1>
-//         </div> */}
-
-//         <div className="title">
-//           <h1>{data.name}</h1>
-//         </div>
-//       </div>
-//     );
-//   };
-// export default Player;
